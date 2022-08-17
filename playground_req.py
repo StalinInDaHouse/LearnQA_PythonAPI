@@ -1,6 +1,6 @@
 import requests
 
-params = {"name": "Dmitriy"}
-response = requests.get('https://playground.learnqa.ru/api/hello', params=params)
-parsed_response_text = response.json()
-print(parsed_response_text["answer"])
+response = requests.get('https://playground.learnqa.ru/api/long_redirect', allow_redirects=True)
+for i in response.history:
+    print(i.url)
+# 1 редирект, конечный url:https://playground.learnqa.ru/
